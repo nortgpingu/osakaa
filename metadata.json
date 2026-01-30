@@ -1,0 +1,7 @@
+{
+  "name": " 大阪家族旅行 ",
+  "description": "A comprehensive travel companion for your 2026 Kansai trip, featuring itineraries, accommodation links, weather tracking, and shopping lists.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
