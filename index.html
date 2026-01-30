@@ -42,7 +42,6 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body>
   <div id="root"></div>
@@ -320,7 +319,7 @@
             <div className="flex gap-2">
               <div className="relative flex-1">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-black">NT$</span>
-                <input type="number" value={input.price} onChange={e => setInput({...input, price: e.target.value})} className="w-full bg-gray-50 border-2 border-gray-50 rounded-2xl p-4 pl-12 font-black" placeholder="價格" />
+                <input type="number" value={input.price} onChange={e => setInput({...input, price: e.target.value})} className="w-full bg-gray-50 border-2 border-gray-50 rounded-2xl p-4 pl-12 font-black" placeholder="台灣價格" />
               </div>
               <select value={input.category} onChange={e => setInput({...input, category: e.target.value})} className="flex-1 bg-gray-50 border-2 border-gray-50 rounded-2xl px-4 font-black appearance-none">
                 {categories.map(c => <option key={c} value={c}>{c}</option>)}
@@ -391,7 +390,7 @@
       });
       const [personal, setPersonal] = useState(() => JSON.parse(localStorage.getItem('kansai_shopping_personal') || '[]'));
       const [proxy, setProxy] = useState(() => JSON.parse(localStorage.getItem('kansai_shopping_proxy') || '[]'));
-      const [cats, setCats] = useState(() => JSON.parse(localStorage.getItem('kansai_shopping_categories') || '["藥妝店", "超市", "服飾", "零食"]'));
+      const [cats, setCats] = useState(() => JSON.parse(localStorage.getItem('kansai_shopping_categories') || '["藥妝店", "超市"]'));
 
       useEffect(() => localStorage.setItem('kansai_itinerary', JSON.stringify(itinerary)), [itinerary]);
       useEffect(() => localStorage.setItem('kansai_shopping_personal', JSON.stringify(personal)), [personal]);
@@ -413,6 +412,5 @@
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
   </script>
-<script type="module" src="/index.tsx"></script>
 </body>
 </html>
