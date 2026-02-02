@@ -393,6 +393,7 @@
       const [showManage, setShowManage] = useState(false);
       const [newCat, setNewCat] = useState('');
       const [expandedImg, setExpandedImg] = useState(null);
+      const [expandedName, setExpandedName] = useState(null);
       const fileRef = useRef(null);
 
       const list = type === 'personal' ? personal : proxy;
@@ -471,7 +472,15 @@
                   </button>
                   <div className="flex-1 min-w-0" onClick={() => i.img && setExpandedImg(expandedImg === i.id ? null : i.id)}>
                     <div className="flex items-center gap-2">
-                      <p className={`text-xl font-black truncate tracking-tighter ${i.done ? 'line-through text-gray-400' : 'text-slate-900'}`}>{i.name}</p>
+                     <p
+  onClick={() => setExpandedName(expandedName === i.id ? null : i.id)}
+  className={`text-xl font-black tracking-tighter cursor-pointer ${
+    expandedName === i.id ? '' : 'truncate'
+  } ${i.done ? 'line-through text-gray-400' : 'text-slate-900'}`}
+>
+  {i.name}
+</p>
+
                      
                     </div>
                     {i.price && <p className="text-base font-black text-[#750000] mt-1 opacity-70">NT$ {i.price}</p>}
